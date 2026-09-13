@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kudremukh: A Paradise Lost | Environmental Impact Report</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            850: '#064e3b',
+                            950: '#022c22'
+                        },
+                        rust: {
+                            500: '#c25e00',
+                            600: '#a34800',
+                            700: '#7c3200'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Global Background Configuration */
+        body {
+            background-color: #94a3b8;
+            background-image: linear-gradient(rgba(203, 213, 225, 0.40), rgba(148, 163, 184, 0.50)), 
+                              url('https://dq1q7qkthxkc0.cloudfront.net/BlogMedia/f258871b-d281-489d-bd0a-89fa2974495c.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .dark body {
+            background-color: #0f172a;
+            background-image: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.94)), 
+                              url('https://dq1q7qkthxkc0.cloudfront.net/BlogMedia/f258871b-d281-489d-bd0a-89fa2974495c.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .glass-card {
+            background: rgba(241, 245, 249, 0.72);
+            backdrop-filter: blur(10px);
+        }
+        .dark .glass-card {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #cbd5e1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #059669;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #047857;
+        }
+    </style>
+</head>
+<body class="text-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans antialiased">
+
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-emerald-500 z-50 transition-all duration-150 w-0" style="width: 0%;"></div>
+
+    <!-- Header / Navigation -->
+    <nav class="sticky top-0 z-40 bg-slate-200/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-300/80 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <span class="p-2 bg-emerald-200/80 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400 rounded-lg">
+                        <i class="fa-solid font-bold fa-mountain-sun text-xl"></i>
+                    </span>
+                    <div>
+                        <span class="font-bold text-lg text-slate-950 dark:text-white tracking-tight">Kudremukh Report</span>
+                        <span class="hidden sm:inline-block text-xs bg-amber-200/80 dark:bg-amber-950 text-amber-900 dark:text-amber-300 px-2 py-0.5 rounded-full ml-2 font-semibold">Eco-Impact Study</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-800 dark:text-slate-300">
+                    <a href="#overview" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Overview</a>
+                    <a href="#mining-ops" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Mining Ops</a>
+                    <a href="#global-warming" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Climate &amp; River Impact</a>
+                    <a href="#health-impacts" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Health Effects</a>
+                    <a href="#policy" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Policy Framework</a>
+                    <a href="#references" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">References</a>
+                </div>
+
+                <div class="flex items-center space-x-3">
+                    <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-300/70 dark:bg-slate-800/80 text-slate-800 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition" aria-label="Toggle Theme">
+                        <i id="theme-icon" class="fa-solid fa-sun"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-800 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-300 dark:border-slate-800 bg-slate-200/95 dark:bg-slate-900/95 backdrop-blur px-4 pt-2 pb-4 space-y-2">
+            <a href="#overview" class="block px-3 py-2 rounded-md text-base font-medium text-slate-900 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-800">Overview</a>
+            <a href="#mining-ops" class="block px-3 py-2 rounded-md text-base font-medium text-slate-900 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-800">Mining Operations</a>
+            <a href="#global-warming" class="block px-3 py-2 rounded-md text-base font-medium text-slate-900 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-800">Climate &amp; River Impact</a>
+            <a href="#health-impacts" class="block px-3 py-2 rounded-md text-base font-medium text-slate-900 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-800">Health Effects</a>
+            <a href="#policy" class="block px-3 py-2 rounded-md text-base font-medium text-slate-900 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-800">Policy Framework</a>
+            <a href="#references" class="block px-3 py-2 rounded-md text-base font-medium text-slate-900 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-800">References</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="overview" class="relative overflow-hidden py-20 lg:py-28">
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center space-x-2 bg-emerald-600/20 border border-emerald-700/40 text-emerald-900 dark:text-emerald-400 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>Western Ghats Biodiversity Focus</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-serif leading-tight mb-6 text-slate-950 dark:text-white drop-shadow-sm">
+                Kudremukh: <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-700 via-orange-700 to-red-700 dark:from-amber-400 dark:via-orange-400 dark:to-red-500">A Paradise Lost</span>
+            </h1>
+            
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-800 dark:text-slate-300 font-normal leading-relaxed mb-8 drop-shadow-sm">
+                Mining in Kudremukh has long been a subject of intense debate due to its profound environmental, catchment, and health impacts. Once a lush sanctuary in India's Western Ghats, open-cast iron ore extraction left scars on the terrain, river hydrology, carbon stores, and human livelihoods.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 items-center">
+                <a href="#mining-ops" class="px-6 py-3 bg-emerald-700 hover:bg-emerald-600 dark:bg-emerald-600 dark:hover:bg-emerald-500 text-white font-semibold rounded-xl shadow-md transition flex items-center space-x-2">
+                    <span>Explore Findings</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <button id="read-article-btn" class="px-6 py-3 bg-slate-100/80 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-200 border border-slate-300/90 dark:border-slate-700 font-medium rounded-xl transition flex items-center space-x-2 backdrop-blur shadow-sm">
+                    <i class="fa-solid fa-volume-high text-emerald-700 dark:text-emerald-500"></i>
+                    <span id="audio-btn-text">Listen Summary</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Key Metrics Highlight Bar -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-10 relative z-20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="glass-card p-6 rounded-2xl border border-slate-300/80 dark:border-slate-800 shadow-md flex items-center space-x-4">
+                <div class="p-3 bg-amber-200/80 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 rounded-xl">
+                    <i class="fa-solid fa-water text-2xl"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-slate-900 dark:text-white">&gt;50%</div>
+                    <div class="text-xs text-slate-700 dark:text-slate-400 font-medium">River Sediment from Mined Zone</div>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-slate-300/80 dark:border-slate-800 shadow-md flex items-center space-x-4">
+                <div class="p-3 bg-red-200/80 dark:bg-red-950/60 text-red-700 dark:text-red-400 rounded-xl">
+                    <i class="fa-solid fa-arrow-trend-up text-2xl"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-slate-900 dark:text-white">4× Surge</div>
+                    <div class="text-xs text-slate-700 dark:text-slate-400 font-medium">Downstream Sediment Yield</div>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-slate-300/80 dark:border-slate-800 shadow-md flex items-center space-x-4">
+                <div class="p-3 bg-emerald-200/80 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 rounded-xl">
+                    <i class="fa-solid fa-tree text-2xl"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-slate-900 dark:text-white">Western Ghats</div>
+                    <div class="text-xs text-slate-700 dark:text-slate-400 font-medium">Global Biodiversity Hotspot</div>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl border border-slate-300/80 dark:border-slate-800 shadow-md flex items-center space-x-4">
+                <div class="p-3 bg-blue-200/80 dark:bg-blue-950 text-blue-700 dark:text-blue-400 rounded-xl">
+                    <i class="fa-solid fa-industry text-2xl"></i>
+                </div>
+                <div>
+                    <div class="text-2xl font-bold text-slate-900 dark:text-white">KIOCL</div>
+                    <div class="text-xs text-slate-700 dark:text-slate-400 font-medium">Millions Tons Ore Mined</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section: Mining Activities -->
+    <section id="mining-ops" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+            <div class="lg:col-span-6 space-y-6">
+                <div class="inline-flex items-center space-x-2 text-emerald-800 dark:text-emerald-400 font-bold text-sm uppercase tracking-wider">
+                    <i class="fa-solid fa-hammer"></i>
+                    <span>Industrial Footprint</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-950 dark:text-white font-serif">
+                    Mining Operations in Kudremukh
+                </h2>
+                <p class="text-slate-800 dark:text-slate-300 leading-relaxed text-base">
+                    Kudremukh’s rich iron ore deposits attracted large-scale industrial extraction starting in the late 20th century. The <strong>Kudremukh Iron Ore Company Limited (KIOCL)</strong> operated an open-cast mine that extracted millions of tons of iron ore annually. 
+                </p>
+                <p class="text-slate-800 dark:text-slate-300 leading-relaxed text-base">
+                    The aggressive process involved clearing vast rainforest zones, blasting ridges, and stripping fertile topsoil—causing deep ecological disruption to the natural terrain and tropical shola-grassland ecosystem.
+                </p>
+
+                <!-- Characteristics List -->
+                <div class="bg-slate-100/75 dark:bg-slate-800/80 backdrop-blur p-6 rounded-2xl border border-slate-300/80 dark:border-slate-700 shadow-sm space-y-4">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-lg flex items-center space-x-2">
+                        <i class="fa-solid fa-list-check text-emerald-700 dark:text-emerald-500"></i>
+                        <span>Key Mining Characteristics</span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3 text-sm text-slate-800 dark:text-slate-300">
+                            <i class="fa-solid fa-circle-dot text-amber-600 dark:text-amber-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Open-Cast Mining:</strong> Fully exposed pristine soil and underlying rock strata to severe tropical rainfall and erosion.</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-sm text-slate-800 dark:text-slate-300">
+                            <i class="fa-solid fa-circle-dot text-amber-600 dark:text-amber-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Native Deforestation:</strong> Clearing of dense evergreen forest patches to access deep ore veins.</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-sm text-slate-800 dark:text-slate-300">
+                            <i class="fa-solid fa-circle-dot text-amber-600 dark:text-amber-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Slurry &amp; Tailings Waste:</strong> Massive discharge of toxic tailings and fine sediment slurry into the Bhadra headwaters.</span>
+                        </li>
+                        <li class="flex items-start space-x-3 text-sm text-slate-800 dark:text-slate-300">
+                            <i class="fa-solid fa-circle-dot text-amber-600 dark:text-amber-500 mt-1 flex-shrink-0"></i>
+                            <span><strong>Soil Compaction &amp; Runoff:</strong> Heavy machinery destroyed topsoil porosity, accelerating surface runoff exponentially.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 mt-10 lg:mt-0 space-y-6">
+                <div class="relative group rounded-2xl overflow-hidden shadow-lg border border-slate-300/80 dark:border-slate-700 bg-slate-800">
+                    <img src="https://bangaloremirror.indiatimes.com/thumb/msid-55361217,width-1200,height-900,resizemode-4/.jpg" onerror="this.onerror=null; this.src='https://placehold.co/800x500/7c3200/ffffff?text=Kudremukh+Mining+Infrastructure';" alt="Mining Infrastructure in Kudremukh" class="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+                        <span class="text-xs uppercase tracking-widest text-amber-400 font-bold">Mining Site</span>
+                        <h4 class="text-lg font-bold text-white">Rusted Conveyor &amp; Processing Structures</h4>
+                        <p class="text-xs text-slate-300 mt-1">Open-cast infrastructure amidst hillsides of Kudremukh.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="relative group rounded-xl overflow-hidden shadow-md border border-slate-300/80 dark:border-slate-700 bg-slate-800">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaEywWBNVg2rBA0_9XGj2pGtYX5L4_ilH_YI4NruZNrEljyvWiZnev_A_Y&s=10" onerror="this.onerror=null; this.src='https://placehold.co/400x300/1e293b/f59e0b?text=KIOCL+Logo+Sign';" alt="KIOCL Red Horse Head Logo" class="w-full h-36 object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                        <div class="absolute bottom-2 left-3 right-3 text-white text-xs font-medium">
+                            KIOCL Emblem &amp; Site Gateway
+                        </div>
+                    </div>
+
+                    <div class="relative group rounded-xl overflow-hidden shadow-md border border-slate-300/80 dark:border-slate-700 bg-slate-800">
+                        <img src="https://www.naturepl.com/cache/pcache2/01388692.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x300/334155/38bdf8?text=Processing+Plant';" alt="KIOCL Industrial Facility" class="w-full h-36 object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                        <div class="absolute bottom-2 left-3 right-3 text-white text-xs font-medium">
+                            Industrial Plant Infrastructure
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Warming & River Ecosystem Section with Chart from Paper -->
+    <section id="global-warming" class="py-16 bg-slate-300/35 dark:bg-slate-900/60 backdrop-blur-sm border-y border-slate-300/70 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-800 dark:text-amber-400 font-bold text-sm uppercase tracking-wider">Ecological &amp; Catchment Crisis</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-950 dark:text-white font-serif mt-2">
+                    Impact on Global Warming &amp; River Ecosystem
+                </h2>
+                <p class="text-slate-800 dark:text-slate-300 mt-3 text-base">
+                    Deforestation, open-cast excavation, and massive sediment flux stripped vital carbon sinks and damaged the delicate microclimate and hydrological balance of the Bhadra River catchment.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <!-- Data Point Explanations -->
+                <div class="lg:col-span-6 space-y-4">
+                    <!-- Paper Specific Finding Card -->
+                    <div class="p-5 bg-amber-500/15 dark:bg-amber-950/40 backdrop-blur rounded-xl border border-amber-400/60 dark:border-amber-700/60 shadow-sm flex items-start space-x-4">
+                        <div class="p-3 bg-amber-200/80 dark:bg-amber-900 text-amber-900 dark:text-amber-300 rounded-lg shrink-0">
+                            <i class="fa-solid fa-water text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <h3 class="font-bold text-slate-900 dark:text-white text-base">Bhadra River Ecosystem Collapse (Krishnaswamy et al.)</h3>
+                                <span class="text-[10px] uppercase font-bold bg-amber-600/30 text-amber-900 dark:text-amber-300 px-2 py-0.5 rounded">Research Study</span>
+                            </div>
+                            <p class="text-slate-800 dark:text-slate-300 text-sm mt-1 leading-relaxed">
+                                Mining-affected lands occupy <strong>&lt;1% (&sim;4.2 km&sup2;)</strong> of the total catchment area, yet contributed <strong>over 50% of the entire suspended sediment load</strong> carried by the Bhadra River and deposited in the Bhadra Reservoir. Specific sediment yields downstream surged four-fold, choking aquatic autotrophs, degrading benthic ecosystems, and disrupting hydrological regulation in an area receiving &gt;6,000 mm of annual monsoon rainfall.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-5 bg-slate-100/75 dark:bg-slate-800/80 backdrop-blur rounded-xl border border-slate-300/80 dark:border-slate-700 shadow-sm flex items-start space-x-4">
+                        <div class="p-3 bg-emerald-200/80 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400 rounded-lg shrink-0">
+                            <i class="fa-solid fa-tree-city text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base">Loss of Forest Sequestration &amp; Microclimates</h3>
+                            <p class="text-slate-800 dark:text-slate-300 text-sm mt-1">
+                                Western Ghats shola-grasslands and montane evergreen canopies act as essential carbon sinks and cloud catchment sponge zones. Clearing this vegetative mantle degraded regional humidity and halted decades of biological CO&sub2; capture.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-5 bg-slate-100/75 dark:bg-slate-800/80 backdrop-blur rounded-xl border border-slate-300/80 dark:border-slate-700 shadow-sm flex items-start space-x-4">
+                        <div class="p-3 bg-red-200/80 dark:bg-red-950 text-red-800 dark:text-red-400 rounded-lg shrink-0">
+                            <i class="fa-solid fa-smog text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base">Soil Carbon Disturbance &amp; GHG Release</h3>
+                            <p class="text-slate-800 dark:text-slate-300 text-sm mt-1">
+                                Stripping high-elevation soil exposed deep organic humus to rapid atmospheric oxidation and aerobic/anaerobic decay, releasing stored carbon and exacerbating microclimatic heating.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-5 bg-slate-100/75 dark:bg-slate-800/80 backdrop-blur rounded-xl border border-slate-300/80 dark:border-slate-700 shadow-sm flex items-start space-x-4">
+                        <div class="p-3 bg-blue-200/80 dark:bg-blue-950 text-blue-800 dark:text-blue-400 rounded-lg shrink-0">
+                            <i class="fa-solid fa-bolt text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-base">Fossil-Fuel Machinery &amp; Industrial Processing</h3>
+                            <p class="text-slate-800 dark:text-slate-300 text-sm mt-1">
+                                Massive benefication plants, continuous slurry piping, and heavy open-cast mining fleets burned vast quantities of petroleum-derived energy, significantly amplifying local anthropogenic emissions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Research Quote Box -->
+                    <div class="p-4 bg-amber-500/20 border-l-4 border-amber-600 text-amber-950 dark:text-amber-200 rounded-r-xl text-sm italic backdrop-blur-sm">
+                        "The specific sediment yield above the mine was 239 Mg/km²/yr versus 947 Mg/km²/yr downstream. More than 50% of the suspended sediment load in both the Bhadra River and Bhadra Reservoir originated from mining-affected lands occupying under 1% of the catchment."
+                        <div class="mt-1 font-semibold text-xs not-italic text-amber-800 dark:text-amber-300">— Krishnaswamy et al., Impact of Iron Ore Mining in Kudremukh on Bhadra River Ecosystem</div>
+                    </div>
+                </div>
+
+                <!-- Replaced Graph: Suspended Sediment Load Upstream vs Downstream from Paper -->
+                <div class="lg:col-span-6 bg-slate-100/75 dark:bg-slate-800/85 backdrop-blur p-6 rounded-2xl border border-slate-300/80 dark:border-slate-700 shadow-md">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-slate-900 dark:text-white text-base">
+                            <i class="fa-solid fa-chart-column text-emerald-700 dark:text-emerald-500 mr-2"></i>
+                            Bhadra River Suspended Sediment Yield (Upstream vs. Downstream)
+                        </h3>
+                        <span class="text-xs bg-emerald-200/80 dark:bg-emerald-950 text-emerald-900 dark:text-emerald-300 px-2 py-1 rounded font-semibold">Krishnaswamy et al.</span>
+                    </div>
+                    <div class="relative h-64 sm:h-72">
+                        <canvas id="sedimentChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-700 dark:text-slate-400 mt-4 text-center">
+                        Data from Krishnaswamy et al. comparing pristine baseline upstream sites against mining-impacted downstream Bhadra waters across Baseflow, Monsoon daily rates, and Annual Specific Sediment Yield (SSY).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Effects Section (Interactive Tabs) -->
+    <section id="health-impacts" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <span class="text-rose-800 dark:text-rose-400 font-bold text-sm uppercase tracking-wider">Multi-Tiered Degradation</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-950 dark:text-white font-serif mt-2">
+                Health Effects Across Ecosystems
+            </h2>
+            <p class="text-slate-800 dark:text-slate-300 mt-3 text-base">
+                The ecological damage radiated across all living organisms—from aquatic biota to endangered endemic fauna and downstream human settlements.
+            </p>
+        </div>
+
+        <!-- Interactive Category Switcher -->
+        <div class="flex justify-center mb-8">
+            <div class="bg-slate-300/70 dark:bg-slate-800/80 backdrop-blur p-1.5 rounded-2xl inline-flex space-x-1 border border-slate-400/40 dark:border-slate-700">
+                <button id="tab-plants" onclick="switchHealthTab('plants')" class="tab-btn px-5 py-2.5 rounded-xl font-medium text-sm transition-all text-slate-800 dark:text-slate-300">
+                    <i class="fa-solid fa-seedling mr-2 text-emerald-700 dark:text-emerald-500"></i>Flora &amp; Aquatic
+                </button>
+                <button id="tab-animals" onclick="switchHealthTab('animals')" class="tab-btn px-5 py-2.5 rounded-xl font-medium text-sm transition-all hover:text-slate-950 dark:hover:text-white text-slate-800 dark:text-slate-300">
+                    <i class="fa-solid fa-paw mr-2 text-amber-700 dark:text-amber-500"></i>Wildlife / Animals
+                </button>
+                <button id="tab-humans" onclick="switchHealthTab('humans')" class="tab-btn px-5 py-2.5 rounded-xl font-medium text-sm transition-all hover:text-slate-950 dark:hover:text-white bg-slate-100/90 dark:bg-slate-700 text-slate-950 dark:text-white shadow-sm">
+                    <i class="fa-solid fa-users mr-2 text-rose-700 dark:text-rose-500"></i>Human Health
+                </button>
+            </div>
+        </div>
+
+        <!-- Tab Content Containers -->
+        <div class="bg-slate-100/75 dark:bg-slate-800/85 backdrop-blur rounded-2xl border border-slate-300/80 dark:border-slate-700 p-6 sm:p-8 shadow-md">
+            
+            <!-- Plants / Aquatic Tab -->
+            <div id="content-plants" class="tab-content hidden">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-5 bg-emerald-100/80 dark:bg-emerald-950/40 rounded-xl border border-emerald-300/80 dark:border-emerald-800/60">
+                        <div class="w-10 h-10 bg-emerald-700 text-white rounded-lg flex items-center justify-center font-bold mb-3">01</div>
+                        <h4 class="font-bold text-slate-950 dark:text-white text-base mb-2">Heavy Metal Accumulation</h4>
+                        <p class="text-sm text-slate-800 dark:text-slate-300">Runoff enriched with iron, manganese, and particulate ores altered stream pH and impaired root uptake of critical riparian flora.</p>
+                    </div>
+
+                    <div class="p-5 bg-emerald-100/80 dark:bg-emerald-950/40 rounded-xl border border-emerald-300/80 dark:border-emerald-800/60">
+                        <div class="w-10 h-10 bg-emerald-700 text-white rounded-lg flex items-center justify-center font-bold mb-3">02</div>
+                        <h4 class="font-bold text-slate-950 dark:text-white text-base mb-2">Aquatic Primary Productivity Loss</h4>
+                        <p class="text-sm text-slate-800 dark:text-slate-300">As Krishnaswamy et al. established, elevated turbidity and sedimentation smothered filamentous algae on river boulders and cobbles.</p>
+                    </div>
+
+                    <div class="p-5 bg-emerald-100/80 dark:bg-emerald-950/40 rounded-xl border border-emerald-300/80 dark:border-emerald-800/60">
+                        <div class="w-10 h-10 bg-emerald-700 text-white rounded-lg flex items-center justify-center font-bold mb-3">03</div>
+                        <h4 class="font-bold text-slate-950 dark:text-white text-base mb-2">Photosynthesis Reduction</h4>
+                        <p class="text-sm text-slate-800 dark:text-slate-300">Thick layers of airborne mineral dust settled on forest leaves, blocking sunlight and impeding plant respiration and growth rates.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animals Tab -->
+            <div id="content-animals" class="tab-content hidden">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-5 bg-amber-100/80 dark:bg-amber-950/40 rounded-xl border border-amber-300/80 dark:border-amber-800/60">
+                        <div class="w-10 h-10 bg-amber-700 text-white rounded-lg flex items-center justify-center font-bold mb-3">
+                            <i class="fa-solid fa-shield-cat"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-950 dark:text-white text-base mb-2">Habitat Fragmentation</h4>
+                        <p class="text-sm text-slate-800 dark:text-slate-300">Crucial habitats for endangered species such as the <strong>Lion-tailed Macaque</strong> and <strong>Malabar Civet</strong> were severely fragmented by mining roads and corridors.</p>
+                    </div>
+
+                    <div class="p-5 bg-amber-100/80 dark:bg-amber-950/40 rounded-xl border border-amber-300/80 dark:border-amber-800/60">
+                        <div class="w-10 h-10 bg-amber-700 text-white rounded-lg flex items-center justify-center font-bold mb-3">
+                            <i class="fa-solid fa-fish"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-950 dark:text-white text-base mb-2">Torrential Fish &amp; Amphibian Loss</h4>
+                        <p class="text-sm text-slate-800 dark:text-slate-300">Stream silting depleted sensitive torrential fish species adapted to clear mountain rivers and impacted endemic amphibians.</p>
+                    </div>
+
+                    <div class="p-5 bg-amber-100/80 dark:bg-amber-950/40 rounded-xl border border-amber-300/80 dark:border-amber-800/60">
+                        <div class="w-10 h-10 bg-amber-700 text-white rounded-lg flex items-center justify-center font-bold mb-3">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-950 dark:text-white text-base mb-2">Acoustic &amp; Human Stress</h4>
+                        <p class="text-sm text-slate-800 dark:text-slate-300">Heavy blasting, sorting plant vibrations, and machinery noise triggered chronic stress and fractured animal migratory paths.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Humans Tab -->
+            <div id="content-humans" class="tab-content">
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="p-4 bg-rose-100/80 dark:bg-rose-950/40 rounded-xl border border-rose-300/80 dark:border-rose-800/60 flex items-start space-x-3">
+                            <i class="fa-solid fa-head-side-cough text-rose-700 dark:text-rose-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-950 dark:text-white text-base">Respiratory Diseases Surge</h4>
+                                <p class="text-sm text-slate-800 dark:text-slate-300">Inhalation of airborne particulate matter and silica dust caused chronic bronchitis and respiratory ailments in local villages.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-rose-100/80 dark:bg-rose-950/40 rounded-xl border border-rose-300/80 dark:border-rose-800/60 flex items-start space-x-3">
+                            <i class="fa-solid fa-droplet-slash text-rose-700 dark:text-rose-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-950 dark:text-white text-base">Water Contamination &amp; Sedimentation</h4>
+                                <p class="text-sm text-slate-800 dark:text-slate-300">Extreme sediment concentrations in Bhadra River affected agrarian irrigation canals and downstream municipal drinking supply quality.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-rose-100/80 dark:bg-rose-950/40 rounded-xl border border-rose-300/80 dark:border-rose-800/60 flex items-start space-x-3">
+                            <i class="fa-solid fa-user-doctor text-rose-700 dark:text-rose-500 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-950 dark:text-white text-base">Occupational Hazards</h4>
+                                <p class="text-sm text-slate-800 dark:text-slate-300">Mine workers endured daily exposure to fine ore dust, slurry containment risks, and severe noise pollution without adequate protective gear.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Survey Highlight Card / Chart -->
+                    <div class="lg:col-span-5 bg-slate-200/80 dark:bg-slate-900/90 p-6 rounded-xl border border-slate-300/80 dark:border-slate-700">
+                        <h4 class="font-bold text-slate-950 dark:text-white text-sm mb-3 flex items-center justify-between">
+                            <span>KSPCB Health Survey (2017)</span>
+                            <span class="text-xs text-rose-700 dark:text-rose-500 font-bold">+30% Higher Risk</span>
+                        </h4>
+                        <div class="relative h-48">
+                            <canvas id="healthChart"></canvas>
+                        </div>
+                        <p class="text-xs text-slate-700 dark:text-slate-400 mt-3 italic">
+                            Karnataka State Pollution Control Board survey showing 30% elevated respiratory illness rates in mining-adjacent villages versus non-mining areas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Policy and Implementation Strategies -->
+    <section id="policy" class="py-16 bg-slate-300/35 dark:bg-slate-900/60 backdrop-blur-sm border-t border-slate-300/70 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-emerald-800 dark:text-emerald-400 font-bold text-sm uppercase tracking-wider">Path to Restoration</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-slate-950 dark:text-white font-serif mt-2">
+                    Policy &amp; Implementation Strategies
+                </h2>
+                <p class="text-slate-800 dark:text-slate-300 mt-3 text-base">
+                    Addressing Kudremukh’s environmental trauma requires an integrated framework balancing catchment restoration, conservation, public health, legal enforcement, and community empowerment.
+                </p>
+            </div>
+
+            <!-- Policy Pillar Matrix -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pillar 1: Environmental Protection -->
+                <div class="bg-slate-100/75 dark:bg-slate-800/85 backdrop-blur rounded-2xl border border-slate-300/80 dark:border-slate-700 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col">
+                    <div class="relative h-40 w-full overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80';" 
+                             alt="Reforestation and Shola Forest Canopy" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 p-2 bg-emerald-700 text-white rounded-lg">
+                            <i class="fa-solid fa-shield-halved text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="font-bold text-slate-950 dark:text-white text-lg mb-3">Environmental Protection</h3>
+                        <ul class="space-y-2 text-sm text-slate-800 dark:text-slate-300">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-emerald-700 dark:text-emerald-500 mt-1 flex-shrink-0"></i>
+                                <span>Strict enforcement of the Supreme Court mine closure in core national park boundaries.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-emerald-700 dark:text-emerald-500 mt-1 flex-shrink-0"></i>
+                                <span>Targeted ecological bio-engineering and native shola reforestation along weathered mine faces.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-emerald-700 dark:text-emerald-500 mt-1 flex-shrink-0"></i>
+                                <span>Continuous catchment sediment and water quality monitoring in Bhadra headwaters.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Health Safeguards -->
+                <div class="bg-slate-100/75 dark:bg-slate-800/85 backdrop-blur rounded-2xl border border-slate-300/80 dark:border-slate-700 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col">
+                    <div class="relative h-40 w-full overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80';" 
+                             alt="Healthcare and Medical Safeguards" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 p-2 bg-rose-700 text-white rounded-lg">
+                            <i class="fa-solid fa-heart-pulse text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="font-bold text-slate-950 dark:text-white text-lg mb-3">Health Safeguards</h3>
+                        <ul class="space-y-2 text-sm text-slate-800 dark:text-slate-300">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-rose-700 dark:text-rose-500 mt-1 flex-shrink-0"></i>
+                                <span>Mandatory medical screenings for historically exposed villager populations.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-rose-700 dark:text-rose-500 mt-1 flex-shrink-0"></i>
+                                <span>Provision of community drinking water purification and silt filtration systems.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-rose-700 dark:text-rose-500 mt-1 flex-shrink-0"></i>
+                                <span>Community health awareness and preventive pulmonary care campaigns.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Community Involvement -->
+                <div class="bg-slate-100/75 dark:bg-slate-800/85 backdrop-blur rounded-2xl border border-slate-300/80 dark:border-slate-700 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col">
+                    <div class="relative h-40 w-full overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=800&q=80';" 
+                             alt="Community Participation and Eco-Tourism" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 p-2 bg-amber-700 text-white rounded-lg">
+                            <i class="fa-solid fa-people-roof text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="font-bold text-slate-950 dark:text-white text-lg mb-3">Community Involvement</h3>
+                        <ul class="space-y-2 text-sm text-slate-800 dark:text-slate-300">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-amber-700 dark:text-amber-500 mt-1 flex-shrink-0"></i>
+                                <span>Direct local and tribal participation in conservation stewardship.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-amber-700 dark:text-amber-500 mt-1 flex-shrink-0"></i>
+                                <span>Regulated eco-tourism &amp; sustainable green livelihood transition programs.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-amber-700 dark:text-amber-500 mt-1 flex-shrink-0"></i>
+                                <span>Equitable community development around periphery buffer zones.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: Legal & Institutional -->
+                <div class="bg-slate-100/75 dark:bg-slate-800/85 backdrop-blur rounded-2xl border border-slate-300/80 dark:border-slate-700 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col">
+                    <div class="relative h-40 w-full overflow-hidden bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?auto=format&fit=crop&w=800&q=80';" 
+                             alt="Legal Oversight and Environmental Regulations" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 p-2 bg-blue-700 text-white rounded-lg">
+                            <i class="fa-solid fa-gavel text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="font-bold text-slate-950 dark:text-white text-lg mb-3">Legal &amp; Institutional</h3>
+                        <ul class="space-y-2 text-sm text-slate-800 dark:text-slate-300">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-blue-700 dark:text-blue-500 mt-1 flex-shrink-0"></i>
+                                <span>Strict legal preservation of national park boundaries against renewed lease requests.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-blue-700 dark:text-blue-500 mt-1 flex-shrink-0"></i>
+                                <span>Independent scientific oversight committees assessing long-term tailings dam stability.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-blue-700 dark:text-blue-500 mt-1 flex-shrink-0"></i>
+                                <span>Collaborative catchment research with leading national academic institutions.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Moving Forward Hero Callout -->
+            <div class="mt-12 bg-gradient-to-r from-emerald-950/95 via-teal-950/95 to-slate-900/95 backdrop-blur rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-xl border border-emerald-900/60">
+                <div class="relative z-10 max-w-3xl">
+                    <span class="text-xs uppercase font-bold tracking-widest text-emerald-300 bg-emerald-900/80 px-3 py-1 rounded-full">Moving Forward</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold font-serif mt-4 mb-3 text-white">
+                        From "Paradise Lost" to Paradise Regained
+                    </h3>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-6">
+                        The story of Kudremukh is a powerful cautionary tale regarding the hidden costs of unchecked industrial extraction within fragile global biodiversity hotspots. Protecting this headwater sanctuary demands scientific catchment restoration, zero encroachment, and rigorous long-term protection.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="shareReport()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl text-sm transition flex items-center space-x-2 shadow">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            <span>Share Report</span>
+                        </button>
+                        <a href="#references" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl text-sm transition">
+                            View Research Citations
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="references" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center space-x-3 mb-8">
+                <i class="fa-solid fa-book-bookmark text-2xl text-emerald-800 dark:text-emerald-400"></i>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white font-serif">
+                    Academic References &amp; Sources
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Citation 1: Primary Paper -->
+                <div class="p-5 bg-slate-100/75 dark:bg-slate-800/85 backdrop-blur rounded-xl border border-slate-300/80 dark:border-slate-700 shadow-sm flex items-start justify-between">
+                    <div>
+                        <span class="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">Primary Research Report</span>
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-200 mt-1">
+                            Krishnaswamy, J., Mehta, V. K., Bunyan, M., Patil, N., Naveenkumar, S., &amp; Karanth, K. U. (2003/2006). <em>Impact of Iron Ore Mining in Kudremukh on Bhadra River Ecosystem</em> / <em>Impact of iron ore mining on suspended sediment response in a tropical catchment in Kudremukh, Western Ghats, India</em>. Wildlife Conservation Society &amp; Forest Ecology and Management.
+                        </p>
+                        <a href="https://www.academia.edu/download/107024970/Impact_20of_20Iron_20Ore_20Mining_20in_20Kudremukh_20on_20Bhadra_20River_20Ecosystem.pdf" target="_blank" rel="noopener noreferrer" class="text-xs text-emerald-800 dark:text-emerald-400 hover:underline mt-1 inline-block">
+                            academia.edu/Impact_of_Iron_Ore_Mining_in_Kudremukh_on_Bhadra_River_Ecosystem.pdf
+                        </a>
+                    </div>
+                    <button onclick="copyCitation('Krishnaswamy, J., Mehta, V. K., Bunyan, M., Patil, N., Naveenkumar, S., & Karanth, K. U. Impact of Iron Ore Mining in Kudremukh on Bhadra River Ecosystem.')" class="p-2 text-slate-600 hover:text-emerald-700 transition ml-4" title="Copy Citation">
+                        <i class="fa-regular fa-copy text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Citation 2 -->
+                <div class="p-5 bg-slate-100/75 dark:bg-slate-800/85 backdrop-blur rounded-xl border border-slate-300/80 dark:border-slate-700 shadow-sm flex items-start justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-200">
+                            Kudremukh Iron Ore Company. <em>Grokipedia</em>. Forest clearance and biodiversity impact data, 1976–2006[cite: 1].
+                        </p>
+                        <a href="https://grokipedia.com/page/Kudremukh_Iron_Ore_Company" target="_blank" rel="noopener noreferrer" class="text-xs text-emerald-800 dark:text-emerald-400 hover:underline mt-1 inline-block">
+                            grokipedia.com/page/Kudremukh_Iron_Ore_Company
+                        </a>
+                    </div>
+                    <button onclick="copyCitation('Kudremukh Iron Ore Company. Grokipedia. Forest clearance and biodiversity impact data, 1976–2006.')" class="p-2 text-slate-600 hover:text-emerald-700 transition ml-4" title="Copy Citation">
+                        <i class="fa-regular fa-copy text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Citation 3 -->
+                <div class="p-5 bg-slate-100/75 dark:bg-slate-800/85 backdrop-blur rounded-xl border border-slate-300/80 dark:border-slate-700 shadow-sm flex items-start justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-slate-900 dark:text-slate-200">
+                            India: Mining and plantations put National Park at risk. <em>World Rainforest Movement Bulletin</em>[cite: 1].
+                        </p>
+                        <a href="https://wrm.org.uy/bulletin-articles/india-mining-and-plantations-put-national-park-at-risk" target="_blank" rel="noopener noreferrer" class="text-xs text-emerald-800 dark:text-emerald-400 hover:underline mt-1 inline-block">
+                            wrm.org.uy/bulletin-articles/india-mining-and-plantations-put-national-park-at-risk
+                        </a>
+                    </div>
+                    <button onclick="copyCitation('India: Mining and plantations put National Park at risk. World Rainforest Movement Bulletin.')" class="p-2 text-slate-600 hover:text-emerald-700 transition ml-4" title="Copy Citation">
+                        <i class="fa-regular fa-copy text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/95 backdrop-blur text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left sm:flex sm:items-center sm:justify-between">
+            <div class="space-y-2 mb-4 sm:mb-0">
+                <div class="flex items-center justify-center sm:justify-start space-x-2 text-white font-bold text-lg">
+                    <i class="fa-solid fa-mountain-sun text-emerald-400"></i>
+                    <span>Created By- Charan R (25MSBTR003), Punith K B (25MSBTR033), Ganesh Rajput (25MSBTR059)</span>
+                </div>
+                <p class="text-sm font-medium text-slate-400">MSc BIOTECHNOLOGY 3rd SEM.[cite: 1]</p>
+                <p class="text-sm text-slate-400">Environmental Biotechnology</p>
+                <p class="text-base text-emerald-400 font-semibold">JAIN (Deemed-to-be) University, School of Sciences</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Element -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl border border-slate-700 text-sm transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center space-x-2">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-msg">Action completed</span>
+    </div>
+
+    <script>
+        // Reading Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                themeIcon.className = 'fa-solid fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                themeIcon.className = 'fa-solid fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+            updateChartColors();
+        });
+
+        // Check stored theme
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIcon.className = 'fa-solid fa-sun';
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIcon.className = 'fa-solid fa-moon';
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Interactive Health Tabs Switcher
+        function switchHealthTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-100/90', 'dark:bg-slate-700', 'text-slate-950', 'dark:text-white', 'shadow-sm');
+                btn.classList.add('text-slate-800', 'dark:text-slate-300');
+            });
+
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+
+            const activeBtn = document.getElementById(`tab-${tabName}`);
+            activeBtn.classList.add('bg-slate-100/90', 'dark:bg-slate-700', 'text-slate-950', 'dark:text-white', 'shadow-sm');
+            activeBtn.classList.remove('text-slate-800', 'dark:text-slate-300');
+        }
+
+        // Audio Reader Simulation
+        let isSpeaking = false;
+        const articleSummary = "Mining in Kudremukh has long been a subject of intense debate. Open-cast mining by KIOCL degraded native shola forests, disrupted catchment microclimates, and elevated downstream Bhadra river sediment yield by nearly 400%, with over 50% of the river's suspended sediment originating from mining activities occupying less than 1% of the catchment area.";
+        
+        document.getElementById('read-article-btn').addEventListener('click', function() {
+            if ('speechSynthesis' in window) {
+                if (isSpeaking) {
+                    window.speechSynthesis.cancel();
+                    isSpeaking = false;
+                    document.getElementById('audio-btn-text').innerText = "Listen Summary";
+                } else {
+                    const utterance = new SpeechSynthesisUtterance(articleSummary);
+                    utterance.rate = 0.95;
+                    utterance.onend = function() {
+                        isSpeaking = false;
+                        document.getElementById('audio-btn-text').innerText = "Listen Summary";
+                    };
+                    window.speechSynthesis.speak(utterance);
+                    isSpeaking = true;
+                    document.getElementById('audio-btn-text').innerText = "Stop Reading";
+                }
+            } else {
+                showToast("Speech synthesis not supported on this browser.");
+            }
+        });
+
+        // Copy Citation
+        function copyCitation(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("Citation copied to clipboard!");
+            }).catch(() => {
+                const el = document.createElement('textarea');
+                el.value = text;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                showToast("Citation copied to clipboard!");
+            });
+        }
+
+        // Share Report
+        function shareReport() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Kudremukh: A Paradise Lost',
+                    text: 'Explore the environmental, catchment, and health impact report on mining in Kudremukh.',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    showToast("Report link copied to clipboard!");
+                }).catch(() => {
+                    const el = document.createElement('textarea');
+                    el.value = window.location.href;
+                    document.body.appendChild(el);
+                    el.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(el);
+                    showToast("Report link copied to clipboard!");
+                });
+            }
+        }
+
+        // Toast Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Initialize Charts
+        let sedimentChart, healthChart;
+
+        function initCharts() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? '#cbd5e1' : '#1e293b';
+            const gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.14)';
+
+            // Bhadra River Sediment Yield Chart from Krishnaswamy et al.
+            const ctxSediment = document.getElementById('sedimentChart').getContext('2d');
+            sedimentChart = new Chart(ctxSediment, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Post-Monsoon Baseflow (Mg/km²/day)', 
+                        'Monsoon Daily Mean (Mg/km²/day)', 
+                        'Annual Specific Sediment Yield (Mg/km²/yr)'
+                    ],
+                    datasets: [
+                        {
+                            label: 'Upstream (Unmined / Baseline)',
+                            data: [0.02, 1.99, 239],
+                            backgroundColor: '#059669',
+                            borderRadius: 6
+                        },
+                        {
+                            label: 'Downstream (Mining Impacted)',
+                            data: [0.74, 7.89, 947],
+                            backgroundColor: '#dc2626',
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                color: textColor,
+                                font: { weight: '600', size: 11 },
+                                boxWidth: 14
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toLocaleString()} units`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { 
+                            ticks: { 
+                                color: textColor, 
+                                font: { weight: '600', size: 10 } 
+                            }, 
+                            grid: { display: false } 
+                        },
+                        y: { 
+                            type: 'logarithmic',
+                            title: {
+                                display: true,
+                                text: 'Sediment Load (Log Scale)',
+                                color: textColor,
+                                font: { size: 10, weight: 'bold' }
+                            },
+                            ticks: { 
+                                color: textColor,
+                                callback: function(value) {
+                                    if (value === 0.01 || value === 0.1 || value === 1 || value === 10 || value === 100 || value === 1000) {
+                                        return value;
+                                    }
+                                }
+                            }, 
+                            grid: { color: gridColor }
+                        }
+                    }
+                }
+            });
+
+            // Health Chart
+            const ctxHealth = document.getElementById('healthChart').getContext('2d');
+            healthChart = new Chart(ctxHealth, {
+                type: 'bar',
+                data: {
+                    labels: ['Non-Mining Villages', 'Mined-Adjacent Villages'],
+                    datasets: [{
+                        label: 'Respiratory Illness Rate Index',
+                        data: [100, 130],
+                        backgroundColor: ['#047857', '#be123c'],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { ticks: { color: textColor, font: { weight: '600' } }, grid: { display: false } },
+                        y: { ticks: { color: textColor, font: { weight: '600' } }, grid: { color: gridColor } }
+                    }
+                }
+            });
+        }
+
+        function updateChartColors() {
+            if (sedimentChart && healthChart) {
+                sedimentChart.destroy();
+                healthChart.destroy();
+                initCharts();
+            }
+        }
+
+        window.onload = function() {
+            initCharts();
+        };
+    </script>
+</body>
+</html>
